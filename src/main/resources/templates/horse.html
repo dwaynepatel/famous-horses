@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Horse page</title>
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{css/bootstrap.css}"/>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+</head>
+<style>
+img{
+    width:400px;
+    height:400px;
+}
+    .sparkle {
+	font-family:impact;
+	 -webkit-text-fill-color: transparent;
+	 background: -webkit-linear-gradient(transparent, transparent),
+	             url(http://www.myspacehippo.com/files/glitterbacks/bg345.gif) repeat;
+	 background: -o-linear-gradient(transparent, transparent);
+	 -webkit-background-clip: text;
+}
+.typewriter{
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid orange; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation:
+    typing 5.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange; }
+}
+</style>
+<script>
+function relocate_home()
+{
+     location.href = "/";
+}
+</script>
+<body>
+<div class="container">
+    <div class="jumbotron text-center">
+        <h2 th:text="${horse.horseFileName}"></h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-6 col-md-4"></div>
+    <div class="col-6 col-md-4">
+        <!--emoji seems to linked to what the modelmap in the contrller puts in -->
+        <img th:src="@{'/assets/'+ ${horse.horseFileName} +'.jpg'}"/>
+    </div>
+    <div class="col-6 col-md-4"></div>
+</div>
+
+<div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-8">
+        <h1 class="typewriter sparkle" th:text="${horse.message}"></h1>
+    </div>
+    <div class="col-sm-1"></div>
+</div>
+<hr/>
+<div class="row">
+    <div class="col-7 col-md-5"></div>
+    <div class="col-4 col-md-2 text-center" >
+        <button type="button" class="btn btn-block" onclick=" relocate_home()">Back</button>
+    </div>
+    <div class="col-7 col-md-5"></div>
+</div>
+
+
+<script type="text/javascript" src="webjars/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

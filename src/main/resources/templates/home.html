@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Emoji Applicaition</title>
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{css/bootstrap.css}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+</head>
+<body>
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="center-text">Famous horse Applicaition</h1>
+        <p>Java Spring Boot web application using Thymeleaf,Spring Data JPA,service abstraction,controllers and exposing a service layer through REST.</p>
+        <p>This app was built using Intellij and is hosted on  Heroku using git. Pages are styled using Bootstrap and text effects using JavaScript.<small class="text-muted">&ensp;&ensp;Dwayne Patel</small></p>
+    </div>
+    <p class="center-text">click on an a famous race horse to learn more...</p>
+</div>
+
+
+    <div th:each="horses: ${horses}"  class="img-thumbnail" style="border:none;" >
+        <a th:href="@{'/horse/' + ${horses.horseFileName}}">
+
+            <img class="home-page-img" th:src="@{'/assets/'+ ${horses.horseFileName} + '.jpg'}"  alt="Horse" /></a>
+    </div>
+
+
+
+    <!-- YOUR CODE HERE -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+</html>
